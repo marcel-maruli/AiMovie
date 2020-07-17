@@ -10,6 +10,7 @@ function Favorite() {
     dispatch(unFavorite(data))
   }
   console.log(dataFavorite, 'aksasaslakslak');
+  
   return (
     <>
       <div className="container" style={{

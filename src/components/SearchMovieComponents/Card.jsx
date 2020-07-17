@@ -2,17 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, FormControl, Card, CardDeck } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFavorite, unFavorite } from '../../store/actions'
+import Detail from "../Detail"
 
 function CardMovie() {
   const dispatch = useDispatch()
   const data = useSelector(state => state.data.data.data)
-  console.log(data);
   const favorite = (data) => {
     dispatch(addFavorite(data))
   }
   const un_favorite = (data) => {
     dispatch(unFavorite(data))
   }
+  const [show, setShow] = useState(false);
 
   let errorFetch = false
   let favorited = null
@@ -25,7 +26,6 @@ function CardMovie() {
   if (data.Response == "False") {
     errorFetch = true
   }
-  console.log(errorFetch);
   return (
     <>
       {
@@ -39,7 +39,7 @@ function CardMovie() {
                   <Card.Text>
                     {data.Plot}
                   </Card.Text>
-                  <Button style={{ marginRight: "5px" }}>Detail</Button>
+                  <Detail data={data} style={{ marginRight: "5px" }} />
                   {
                     !favorited ?
                       <Button style={{ background: "green" }} onClick={() => favorite(data)}>Add To Favorite</Button>
