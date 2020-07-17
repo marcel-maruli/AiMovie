@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, Button, FormControl, Card, CardDeck } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { addFavorite, unFavorite } from '../../store/actions'
+import Detail from '../Detail'
 
 function Favorite() {
   const dispatch = useDispatch()
@@ -10,7 +11,7 @@ function Favorite() {
     dispatch(unFavorite(data))
   }
   console.log(dataFavorite, 'aksasaslakslak');
-  
+
   return (
     <>
       <div className="container" style={{
@@ -28,7 +29,7 @@ function Favorite() {
                     <Card.Text>
                       {data.Plot}
                     </Card.Text>
-                    <Button style={{ marginRight: "5px" }}>Detail</Button>
+                    <Detail data={data} style={{ marginRight: "5px" }} />
                     <Button style={{ background: "red" }} onClick={() => un_favorite(data.imdbID)}>Unfavorite</Button>
                   </Card.Body>
                   <Card.Footer>
