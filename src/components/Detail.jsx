@@ -5,7 +5,6 @@ import { Navbar, Nav, Form, Button, FormControl, Image, Card, Modal } from 'reac
 
 function Detail(props) {
   const [show, setShow] = useState(false);
-  console.log(props);
   return (
     <>
       <Button variant="primary" onClick={() => setShow(true)} style={{ marginRight: "5px" }}>
